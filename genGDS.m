@@ -297,7 +297,7 @@ function L = genGDS(varargin)
         case 'circ2cart'
             Ntot = round(pi*(opts.Rmax.^2-opts.Rmin.^2)/prod(mpr));
         otherwise % cyl and cyl2cart
-            Ntot = round(prod(opts.Rmax)/prod(mpr));
+            Ntot = round(prod(opts.Rmax-[opts.Rmin 0])/prod(mpr));
     end
     nums = [mod(fix(Ntot/1e6), 1e3),mod(fix(Ntot/1e3), 1e3),mod(Ntot, 1e3)];
     nums(nums == 0) = [];
