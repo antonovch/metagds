@@ -357,7 +357,7 @@ function L = genGDS(varargin)
             allsects = cell(size(tls0));
             for isec = 1:numel(allsects)
                 PY = min(opts.period(isec,2));
-                Y = (PY/2:PY:opts.Rmax(2)).';
+                Y = (PY/2:PY:opts.Rmax(2)-PY/2).';
                 X = zeros(size(Y));
                 % get sref's of a unit cell that form a stripe
                 cur_ref = gds_element('sref', 'sname', sname(tls0{isec}), ...
@@ -481,7 +481,7 @@ function L = genGDS(varargin)
             %%% simply use the set of stripes and translate them in X- (R-)
             %%% direction. These stripes are kept in allsects cell array.
             R = opts.Rmin; % R is the inner radius of the current ring
-            while R < opts.Rmax(1)
+            while R < opts.Rmax(1) - PR
                 % generating values for phase each time, in case the ring sizes are unequal
                 cur_lvl = get_el_ind(opts, phase_data(R+PR/2)); % see below for definition
                 PR = opts.period(cur_lvl, 1);
