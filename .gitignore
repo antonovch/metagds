@@ -1,1 +1,13 @@
-readmeimage.png
+.DS_Store
+.MATLABDriveTag
+auto
+pdf_figs
+*.aux
+*.tex
+*.dvi
+*.out
+*.gz
+*.toc
+*.png
+*~
+*.log
